@@ -14,6 +14,8 @@
 - tab-port
 _ tab-land
 _ big-desktop
+
+1em = 16px
 */
 @keyframes moveInLeft {
   0% {
