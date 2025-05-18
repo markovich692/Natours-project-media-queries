@@ -26,22 +26,8 @@
 1200-1800px ----> Desktop
 
 1800px + ---> Big Desktop
-*/
 
-// @mixins all-cases($width) {
-//   @media (max-width: $width) {
-//     @content;
-//   }
-// }
-
-// .story {
-//   @include all-cases(600px) {
-//     width: 50%;
-//   }
-// }
-
-/////////////////////////////
-/*
+//Breakpint arguments choices
 - phone
 - tab-port
 _ tab-land
@@ -79,3 +65,62 @@ _ big-desktop
     }
   }
 }
+
+/*
+//1
+@media (max-width: 600px) {
+  .story {
+    width: 50%;
+  }
+}
+
+//2
+.story {
+  @media (max-width: 600px) {
+    width: 50%;
+  }
+}
+
+//3
+@mixin respond {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+
+.story {
+  @include respond {
+    font-size: 50%;
+  }
+}
+
+//4
+
+@mixin respond($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+.story {
+  @include respond(600px) {
+    width: 50%;
+  }
+}
+
+//5
+
+@mixin respond($breakpoint) {
+  @if ($breakpoint == phone) {
+    @media (max-width: 600px) {
+      @content;
+    }
+  }
+}
+
+.story {
+  @include respond(phone) {
+    width: 50%;
+  }
+}
+*/

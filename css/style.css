@@ -8,14 +8,72 @@
 1200-1800px ----> Desktop
 
 1800px + ---> Big Desktop
-*/
-/*
+
+//Breakpint arguments choices
 - phone
 - tab-port
 _ tab-land
 _ big-desktop
 
 1em = 16px
+*/
+/*
+//1
+@media (max-width: 600px) {
+  .story {
+    width: 50%;
+  }
+}
+
+//2
+.story {
+  @media (max-width: 600px) {
+    width: 50%;
+  }
+}
+
+//3
+@mixin respond {
+  @media (max-width: 600px) {
+    @content;
+  }
+}
+
+.story {
+  @include respond {
+    font-size: 50%;
+  }
+}
+
+//4
+
+@mixin respond($breakpoint) {
+  @media (max-width: $breakpoint) {
+    @content;
+  }
+}
+
+.story {
+  @include respond(600px) {
+    width: 50%;
+  }
+}
+
+//5
+
+@mixin respond($breakpoint) {
+  @if ($breakpoint == phone) {
+    @media (max-width: 600px) {
+      @content;
+    }
+  }
+}
+
+.story {
+  @include respond(phone) {
+    width: 50%;
+  }
+}
 */
 @keyframes moveInLeft {
   0% {
@@ -63,6 +121,21 @@ _ big-desktop
 
 html {
   font-size: 62.5%;
+}
+@respond (tab-land) {
+  html {
+    font-size: 56.25%;
+  }
+}
+@respond (tab-port) {
+  html {
+    font-size: 50%;
+  }
+}
+@respond (big-desktop) {
+  html {
+    font-size: 75%;
+  }
 }
 
 body {
