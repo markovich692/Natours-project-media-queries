@@ -16,12 +16,60 @@
 ///////////////////////////
 //MEDIA QUERY MANAGER
 
-// 0-600px ----> Phone
+/*
+0-600px ----> Phone
 
-// 600-900px ----> Tablet Portrait
+600-900px ----> Tablet Portrait
 
-// 900-1200px ----> Tablet Landscape
+900-1200px ----> Tablet Landscape
 
-// 1200-1800px ----> Desktop
+1200-1800px ----> Desktop
 
-// +1800px ---> Big Desktop
+1800px + ---> Big Desktop
+*/
+
+// @mixins all-cases($width) {
+//   @media (max-width: $width) {
+//     @content;
+//   }
+// }
+
+// .story {
+//   @include all-cases(600px) {
+//     width: 50%;
+//   }
+// }
+
+/////////////////////////////
+/*
+- phone
+- tab-port
+_ tab-land
+_ big-desktop
+*/
+
+@mixin respond($device) {
+  @if $device == phone {
+    @media (max-width: 600px) {
+      @content;
+    }
+  }
+
+  @if $device == tab-port {
+    @media (max-width: 900px) {
+      @content;
+    }
+  }
+
+  @if $device == tab-land {
+    @media (max-width: 1200px) {
+      @content;
+    }
+  }
+
+  @if $device == big-desktop {
+    @media (min-width: 1800px) {
+      @content;
+    }
+  }
+}
