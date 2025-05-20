@@ -22,5 +22,8 @@
 // 0 <= arr.length <= 1000
 
 Array.prototype.last = function () {
-  return this.length ? this[this.length - 1] : -1;
+  const arrLength = this.length;
+  return 0 <= arrLength <= 1000 && arrLength ? this[arrLength - 1] : -1;
 };
+
+console.log([1, 2, 4, 4, null].last());
