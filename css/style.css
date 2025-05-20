@@ -15,7 +15,7 @@
 _ tab-land
 _ big-desktop
 
-ORDER: base + typography > general layout + grid > page lsyout > components
+ORDER: base + typography > general layout + grid > page layout > components
 
 1em = 16px
 */
@@ -124,17 +124,17 @@ ORDER: base + typography > general layout + grid > page lsyout > components
 html {
   font-size: 62.5%;
 }
-@respond (tab-land) {
+@media (max-width: 75em) {
   html {
     font-size: 56.25%;
   }
 }
-@respond (tab-port) {
+@media (max-width: 56.25em) {
   html {
     font-size: 50%;
   }
 }
-@respond (big-desktop) {
+@media (min-width: 112.5em) {
   html {
     font-size: 75%;
   }
