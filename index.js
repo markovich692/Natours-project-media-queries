@@ -20,3 +20,7 @@
 
 // arr is a valid JSON array
 // 0 <= arr.length <= 1000
+
+Array.prototype.last = function () {
+  return this.length ? this[this.length - 1] : -1;
+};
